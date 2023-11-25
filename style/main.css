@@ -1,0 +1,105 @@
+@import url(colors.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background: radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  height: 100px;
+  margin: 40px 0 0 0;
+  padding: 10px 15px;
+  border: 2px solid var(--header-line);
+  border-radius: 10px;
+}
+
+.title-container,
+.score-container {
+  width: 100px;
+}
+
+.title-container p {
+  font-weight: 600;
+  color: white;
+  line-height: 0.8;
+  font-size: 25px;
+}
+
+.score-container {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 10px 0 0 0;
+  border-radius: 5px;
+  line-height: 1.1;
+}
+
+.score-title {
+  color: var(--score-title-text);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.score-number {
+  color: var(--score-text);
+  font-size: 40px;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+main {
+  margin: 200px auto;
+  max-width: 600px;
+}
+
+.game-container {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+}
+
+.game-container .button {
+  position: absolute;
+  cursor: pointer;
+  background: white;
+}
+
+.button--paper {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.button--scissors {
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+
+.button--rock {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}

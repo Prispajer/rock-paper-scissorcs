@@ -1,0 +1,8 @@
+:root {
+  --score-text: hsl(229, 25%, 31%);
+  --score-title-text: hsl(229, 64%, 46%);
+  --header-line: hsl(217, 16%, 45%);
+  --scissors-gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
+  --paper-gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
+  --rock-gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+}

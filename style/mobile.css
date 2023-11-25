@@ -1,0 +1,9 @@
+@media (max-width: 600px) {
+  body {
+    margin: auto;
+  }
+
+  header {
+    width: 90%;
+  }
+}
