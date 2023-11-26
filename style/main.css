@@ -8,6 +8,7 @@
 
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 1.6rem;
   background: radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +24,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 600px;
+  width: 50%;
   height: 100px;
   margin: 40px 0 0 0;
   padding: 10px 15px;
@@ -40,7 +41,7 @@ header {
   font-weight: 600;
   color: var(--white);
   line-height: 0.8;
-  font-size: 25px;
+  font-size: 2.5rem;
 }
 
 .score-container {
@@ -56,20 +57,21 @@ header {
 
 .score-title {
   color: var(--score-title-text);
-  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .score-number {
   color: var(--score-text);
-  font-size: 40px;
+  font-size: 4rem;
   font-weight: 700;
   opacity: 0.9;
   padding: 0 0 10px 0;
 }
 
 main {
-  margin: 200px auto;
+  margin: 130px auto 0 auto;
   max-width: 600px;
+  width: 40%;
 }
 
 .game-container {
@@ -77,30 +79,40 @@ main {
   background-position: center;
   background-size: cover;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   aspect-ratio: 1/1;
+}
+
+.triangle {
+  width: 100%;
 }
 
 .game-container .button {
   aspect-ratio: 1/1;
   position: absolute;
   border-radius: 50%;
-  width: 50%;
+  width: 30%;
   cursor: pointer;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: inset 0px 8px 0px rgb(0, 0, 0, 0.15);
 }
 
 .image-container {
   width: 80%;
   height: 80%;
+  box-shadow: inset 0px 8px 0px rgb(0, 0, 0, 0.15);
   background: var(--white);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.image-container img {
+  width: 60%;
 }
 
 .button--paper {
@@ -121,7 +133,7 @@ main {
   background-image: var(--rock-gradient);
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, 0%);
 }
 
 img {

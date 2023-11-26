@@ -53,30 +53,32 @@
           </div>
         </button>
       </section>
-      <section class="compare-result">
-        <div class="picks-container">
-          <div class="player-choice">
-            <p>YOU PICKED</p>
-            <div class="player-choice-image">
-              <div class="image-container">
-                <img src="images/icon-scissors.svg" alt="scissors" />
-              </div>
-            </div>
-          </div>
-          <div class="computer-choice">
-            <p>THE HOUSE</p>
-            <div class="computer-choice-image">
-              <div class="image-container">
-                <div class="image-container">
-                  <img src="images/icon-scissors.svg" alt="scissors" />
-                </div>
-              </div>
+      <button class="rules">RULES</button>
+    </main>
+    <section class="compare-result">
+      <div class="picks-container">
+        <div class="player-choice">
+          <p>YOU PICKED</p>
+          <div class="player-choice-image scissors-complete">
+            <div class="image-container-compare">
+              <img src="images/icon-scissors.svg" alt="scissors" />
             </div>
           </div>
         </div>
-      </section>
-      <button class="rules">RULES</button>
-    </main>
+        <div class="result">
+          <p>YOU LOSE</p>
+          <button class="play-again"><p>PLAY AGAIN</p></button>
+        </div>
+        <div class="computer-choice">
+          <p>THE HOUSE PICKED</p>
+          <div class="player-choice-image rock-complete">
+            <div class="image-container-compare round-image">
+              <img src="images/icon-rock.svg" alt="rock" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="rules-container"></section>
     <script src="/scripts/app.js"></script>
     <script src="scripts/utils.js"></script>

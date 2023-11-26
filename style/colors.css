@@ -1,4 +1,5 @@
 :root {
+  font-size: 62.5%;
   --white: #ffffff;
   --score-text: hsl(229, 25%, 31%);
   --score-title-text: hsl(229, 64%, 46%);
