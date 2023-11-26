@@ -1,23 +1,25 @@
 const button = document.querySelectorAll(".button");
+const rules = document.querySelector(".rules");
+const rulesContainer = document.querySelector(".rules-container");
 
 let choices = ["paper", "scissors", "rock"];
 
-function getComputerId() {
-  let computerChoice = Math.floor(Math.random() * choices.length);
-  console.log(computerChoice);
-}
-
-function getPlayerId(event) {
-  let choiceId = parseInt(event.target.dataset.choiceId);
-
-  console.log(choiceId);
-}
-
-function compareResult() {}
-
 button.forEach((active) => {
   active.addEventListener("click", (event) => {
-    getPlayerId(event);
-    getComputerId();
+    const computerChoice = getComputerId();
+    const playerChoice = getPlayerId(event);
+    compareResult(computerChoice, playerChoice);
   });
+});
+
+const updateRulesView = () => {
+  rulesContainer.innerHTML = rulesView;
+  const closeWindow = rulesContainer.querySelector(".close-window");
+  closeWindow.addEventListener("click", () => {
+    rulesContainer.innerHTML = "";
+  });
+};
+
+rules.addEventListener("click", () => {
+  updateRulesView();
 });

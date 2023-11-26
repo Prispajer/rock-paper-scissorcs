@@ -17,7 +17,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
 }
 
 header {
@@ -39,13 +38,13 @@ header {
 
 .title-container p {
   font-weight: 600;
-  color: white;
+  color: var(--white);
   line-height: 0.8;
   font-size: 25px;
 }
 
 .score-container {
-  background: white;
+  background: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +56,6 @@ header {
 
 .score-title {
   color: var(--score-title-text);
-  font-weight: 600;
   font-size: 14px;
 }
 
@@ -66,6 +64,7 @@ header {
   font-size: 40px;
   font-weight: 700;
   opacity: 0.9;
+  padding: 0 0 10px 0;
 }
 
 main {
@@ -77,28 +76,49 @@ main {
   position: relative;
   background-position: center;
   background-size: cover;
-  margin: auto;
+  margin: 0 auto;
+  width: 90%;
+  aspect-ratio: 1/1;
 }
 
 .game-container .button {
+  aspect-ratio: 1/1;
   position: absolute;
+  border-radius: 50%;
+  width: 50%;
   cursor: pointer;
-  background: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container {
+  width: 80%;
+  height: 80%;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button--paper {
+  background-image: var(--paper-gradient);
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
 }
 
 .button--scissors {
+  background-image: var(--scissors-gradient);
   right: 0;
   top: 0;
   transform: translate(50%, -50%);
 }
 
 .button--rock {
+  background-image: var(--rock-gradient);
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
@@ -106,4 +126,18 @@ main {
 
 img {
   pointer-events: none;
+}
+
+.rules {
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  background: transparent;
+  border: 2px solid var(--header-line);
+  border-radius: 8px;
+  width: 100px;
+  height: 40px;
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
 }

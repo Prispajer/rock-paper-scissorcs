@@ -3,7 +3,69 @@
     margin: auto;
   }
 
+  main {
+    margin: 120px auto;
+  }
+
   header {
     width: 90%;
+  }
+
+  .score-number {
+    padding: 0 0 10px 0;
+  }
+
+  .game-container {
+    width: 70%;
+  }
+
+  .game-container .button {
+    width: 50%;
+  }
+
+  .game-container .triangle {
+    width: 100%;
+  }
+
+  .button img {
+    width: 60%;
+  }
+
+  .rules {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .rules-content {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+  }
+
+  .rules-header button {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%, 50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .rules-title {
+    position: absolute;
+    top: 15%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    color: var(--score-text);
   }
 }

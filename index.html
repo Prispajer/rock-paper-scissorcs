@@ -15,7 +15,8 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="stylesheet" href="style/compareResults.css" />
+    <link rel="stylesheet" href="style/rules.css" />
     <link rel="stylesheet" href="style/main.css" />
     <link rel="stylesheet" href="style/mobile.css" />
     <title>Frontend Mentor | Rock, Paper, Scissors</title>
@@ -35,18 +36,50 @@
     </header>
     <main>
       <section class="game-container">
-        <img src="images/bg-triangle.svg" alt="triangle" />
-        <div class="button button--paper" data-choice-id="1">
-          <img src="images/icon-paper.svg" alt="paper" />
-        </div>
-        <div class="button button--scissors" data-choice-id="2">
-          <img src="images/icon-scissors.svg" alt="scissors" />
-        </div>
-        <div class="button button--rock" data-choice-id="3">
-          <img src="images/icon-rock.svg" alt="rock" />
+        <img class="triangle" src="images/bg-triangle.svg" alt="triangle" />
+        <button class="button button--paper" data-choice-id="1">
+          <div class="image-container">
+            <img src="images/icon-paper.svg" alt="paper" />
+          </div>
+        </button>
+        <button class="button button--scissors" data-choice-id="2">
+          <div class="image-container">
+            <img src="images/icon-scissors.svg" alt="scissors" />
+          </div>
+        </button>
+        <button class="button button--rock" data-choice-id="3">
+          <div class="image-container">
+            <img src="images/icon-rock.svg" alt="rock" />
+          </div>
+        </button>
+      </section>
+      <section class="compare-result">
+        <div class="picks-container">
+          <div class="player-choice">
+            <p>YOU PICKED</p>
+            <div class="player-choice-image">
+              <div class="image-container">
+                <img src="images/icon-scissors.svg" alt="scissors" />
+              </div>
+            </div>
+          </div>
+          <div class="computer-choice">
+            <p>THE HOUSE</p>
+            <div class="computer-choice-image">
+              <div class="image-container">
+                <div class="image-container">
+                  <img src="images/icon-scissors.svg" alt="scissors" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+      <button class="rules">RULES</button>
     </main>
+    <section class="rules-container"></section>
     <script src="/scripts/app.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/view.js"></script>
   </body>
 </html>
