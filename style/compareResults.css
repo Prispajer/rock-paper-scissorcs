@@ -90,4 +90,5 @@
 .rock-complete {
   background-image: var(--rock-gradient);
   border-radius: 50%;
+  width: 100%;
 }

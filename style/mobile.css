@@ -1,6 +1,11 @@
 @media (max-width: 600px) {
   body {
-    margin: auto;
+    body {
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   main {
@@ -17,7 +22,13 @@
   }
 
   .game-container {
+    margin-top: auto;
+    margin-bottom: auto;
     width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .game-container .button {
