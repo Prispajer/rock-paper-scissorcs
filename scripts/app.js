@@ -2,13 +2,29 @@ const button = document.querySelectorAll(".button");
 const rules = document.querySelector(".rules");
 const rulesContainer = document.querySelector(".rules-container");
 
-let choices = ["paper", "scissors", "rock"];
+const possibleScenarios = [
+  {
+    choice: "rock",
+    beats: "scissors",
+  },
+  {
+    choice: "scissors",
+    beats: "paper",
+  },
+  {
+    choice: "paper",
+    beats: "rock",
+  },
+];
 
 button.forEach((active) => {
   active.addEventListener("click", (event) => {
     const computerChoice = getComputerId();
     const playerChoice = getPlayerId(event);
-    compareResult(computerChoice, playerChoice);
+    const result = compareResult(computerChoice, playerChoice);
+    console.log(playerChoice);
+    console.log(computerChoice);
+    saveResultToLocalStorage(result);
   });
 });
 

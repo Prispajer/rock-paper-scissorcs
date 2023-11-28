@@ -96,8 +96,56 @@ main {
   border-radius: 50%;
   display: grid;
   place-items: center;
+  pointer-events: none;
 }
 
 .image-container img {
   width: 60%;
+}
+
+.rock-complete {
+  background-image: var(--rock-gradient);
+}
+
+.scissors-complete {
+  background-image: var(--scissors-gradient);
+}
+
+.paper-complete {
+  background-image: var(--paper-gradient);
+}
+
+.rock-complete,
+.scissors-complete,
+.paper-complete {
+  display: grid;
+  place-items: center;
+  margin: 20px 0 0 0;
+  width: 70%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.player-choice-container {
+  text-align: center;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.computer-choice-container {
+  text-align: center;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.player-choice p,
+.computer-choice p {
+  color: var(--white);
+  padding: 0 0 20px 0;
 }

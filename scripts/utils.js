@@ -1,6 +1,7 @@
 function getComputerId() {
-  let computerChoice = Math.floor(Math.random() * choices.length);
-  return computerChoice;
+  const choices = possibleScenarios.map((scenario) => scenario.choice);
+  let randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
 }
 
 function getPlayerId(event) {
@@ -15,3 +16,14 @@ function compareResult(computerResult, playerResult) {
     console.log("LOSE");
   }
 }
+
+const saveResultToLocalStorage = (result) => {
+  const existingResults = JSON.parse(localStorage.getItem("gameResults")) || [];
+  existingResults.push(result);
+  localStorage.setItem("gameResults", JSON.stringify(existingResults));
+};
+
+const getResultsFromLocalStorage = () => {
+  const storedResults = JSON.parse(localStorage.getItem("gameResults")) || [];
+  return storedResults;
+};
