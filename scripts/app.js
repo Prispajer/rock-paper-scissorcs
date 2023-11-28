@@ -2,42 +2,20 @@ const button = document.querySelectorAll(".button");
 const rules = document.querySelector(".rules");
 const rulesContainer = document.querySelector(".rules-container");
 const main = document.querySelector("main");
-const playerChoiceContainer = document.querySelector(
-  ".player-choice-container"
-);
-const computerChoiceContainer = document.querySelector(
-  ".computer-choice-container"
-);
 
-const possibleScenarios = [
+let stateOfTheGame = [
   {
-    choice: "rock",
-    beats: "scissors",
-  },
-  {
-    choice: "scissors",
-    beats: "paper",
-  },
-  {
-    choice: "paper",
-    beats: "rock",
+    computerWins: localStorage.getItem("computerWins") || 0,
+    playerWins: localStorage.getItem("playerWins") || 0,
+    computerResult: null,
+    playerResult: null,
   },
 ];
 
-const updatePhase1 = () => {
-  const section = document.createElement("section");
-  section.classList.add("phase-1");
-  main.prepend(section);
-};
-
-const updatePhase2 = () => {
-  return phase2;
-};
-const updatePhase3 = () => {
-  return phase3;
-};
-const updatePhase4 = () => {
-  return phase4;
+const updateScore = () => {
+  const scoreElement = document.querySelector(".score-number");
+  scoreElement.innerHTML =
+    stateOfTheGame[0].playerWins - stateOfTheGame[0].computerWins;
 };
 
 setTimeout(() => {}, 1000);
@@ -46,8 +24,8 @@ button.forEach((active) => {
   active.addEventListener("click", (event) => {
     const computerChoice = getComputerId();
     const playerChoice = getPlayerId(event);
-    const result = compareResult(computerChoice, playerChoice);
-    saveResultToLocalStorage(result);
+
+    compareResult(computerChoice, playerChoice);
   });
 });
 
@@ -63,4 +41,4 @@ rules.addEventListener("click", () => {
   updateRulesView();
 });
 
-updatePhase1();
+updateScore();

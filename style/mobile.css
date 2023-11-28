@@ -21,7 +21,7 @@
     padding: 0 0 10px 0;
   }
 
-  .game-container {
+  .phase-1 {
     margin-top: auto;
     margin-bottom: auto;
     width: 70%;
@@ -31,11 +31,11 @@
     text-align: center;
   }
 
-  .game-container .button {
+  .phase-1 .button {
     width: 50%;
   }
 
-  .game-container .triangle {
+  .phase-1 .triangle {
     width: 100%;
   }
 
