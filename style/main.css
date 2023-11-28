@@ -154,7 +154,7 @@ main {
 /*  */
 /* phase-1 styling */
 
-.phase-1 {
+.game-container {
   position: relative;
   background-position: center;
   background-size: cover;
@@ -165,14 +165,14 @@ main {
   align-items: center;
 }
 
-.phase-1 .triangle {
+.game-container .triangle {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
-.phase-1 .button {
+.game-container .button {
   aspect-ratio: 1/1;
   position: absolute;
   border-radius: 50%;
@@ -184,38 +184,38 @@ main {
   box-shadow: inset 0px 8px 0px rgb(0, 0, 0, 0.15);
 }
 
-.phase-1 .button--paper {
+.game-container .button--paper {
   background-image: var(--paper-gradient);
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
 }
 
-.phase-1 .button--scissors {
+.game-container .button--scissors {
   background-image: var(--scissors-gradient);
   right: 0;
   top: 0;
   transform: translate(50%, -50%);
 }
 
-.phase-1 .button--rock {
+.game-container .button--rock {
   background-image: var(--rock-gradient);
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
 }
 
-.phase-1 img {
+.game-container img {
   pointer-events: none;
 }
 
 /*  */
 /* phase-2 styling */
-.phase-2 {
+.player-pick-result {
   width: 100%;
 }
 
-.phase-2 .empty-button {
+.player-pick-result .empty-button {
   opacity: 0.1;
   width: 70%;
   aspect-ratio: 1/1;
@@ -224,16 +224,16 @@ main {
   margin: 20px 0 0 0;
 }
 
-.phase-2 .empty-button img {
+.player-pick-result .empty-button img {
   display: none;
 }
 /*  */
-/* phase-3, phase-4 styling */
-.phase-4 {
+/* phase-3, final-result styling */
+.final-result {
   width: 100%;
 }
 
-.phase-4 .result {
+.final-result .result {
   width: 25%;
   display: flex;
   justify-content: center;
@@ -241,13 +241,13 @@ main {
   flex-direction: column;
 }
 
-.phase-4 .result p {
+.final-result .result p {
   font-size: 3rem;
   padding: 0 0 15px 0;
   color: var(--white);
 }
 
-.phase-4 .play-again {
+.final-result .play-again {
   background: var(--white);
   outline: none;
   border: none;
@@ -257,14 +257,14 @@ main {
   cursor: pointer;
 }
 
-.phase-4 .play-again p {
+.final-result .play-again p {
   font-size: 1.5rem;
   text-align: center;
   line-height: 2.8;
   color: black;
 }
 
-.phase-4 .play-again:hover {
+.final-result .play-again:hover {
   color: var(--rock-gradient);
 }
 /*  */

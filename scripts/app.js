@@ -7,10 +7,18 @@ let stateOfTheGame = [
   {
     computerWins: localStorage.getItem("computerWins") || 0,
     playerWins: localStorage.getItem("playerWins") || 0,
-    computerResult: null,
-    playerResult: null,
+    computerPick: null,
+    playerPick: null,
   },
 ];
+
+const addPlayerScore = () => {
+  stateOfTheGame[0].computerWins += 1;
+};
+
+const addComputerScore = () => {
+  stateOfTheGame = [...(stateOfTheGame, computerWins + 1)];
+};
 
 const updateScore = () => {
   const scoreElement = document.querySelector(".score-number");
@@ -18,18 +26,7 @@ const updateScore = () => {
     stateOfTheGame[0].playerWins - stateOfTheGame[0].computerWins;
 };
 
-setTimeout(() => {}, 1000);
-
-button.forEach((active) => {
-  active.addEventListener("click", (event) => {
-    const computerChoice = getComputerId();
-    const playerChoice = getPlayerId(event);
-
-    compareResult(computerChoice, playerChoice);
-  });
-});
-
-const updateRulesView = () => {
+const openRules = () => {
   rulesContainer.innerHTML = rulesView;
   const closeWindow = rulesContainer.querySelector(".close-window");
   closeWindow.addEventListener("click", () => {
@@ -37,8 +34,55 @@ const updateRulesView = () => {
   });
 };
 
-rules.addEventListener("click", () => {
-  updateRulesView();
-});
+const switchViews = () => {
+  document.querySelector(".game-container").classList.add("hidden");
+  document.querySelector(".player-pick-result").classList.remove("hidden");
+};
 
-updateScore();
+const updateGameView = () => {
+  const playerPickResultContainer = document.querySelector(
+    ".player-pick-result"
+  );
+  const playerPickResultTemplate = `
+    <div class="picks-container">
+      <div class="choice-container">
+        <p>YOU PICKED</p>
+        <div class="rock-complete">
+          <div class="image-container">
+            <img src="images/icon-rock.svg" alt="rock" />
+          </div>
+        </div>
+      </div>
+      <div class="choice-container">
+        <p>THE HOUSE PICKED</p>
+        <div class="empty-button">
+          <img src="images/icon-rock.svg" alt="" />
+        </div>
+      </div>
+    </div>
+  `;
+  playerPickResultContainer.innerHTML = playerPickResultTemplate;
+};
+
+const buttonOperation = () => {
+  button.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const computerChoice = getComputerId();
+      const playerChoice = getPlayerId(event);
+      compareResult(computerChoice, playerChoice);
+      switchViews();
+    });
+  });
+};
+
+const initializeGame = () => {
+  updateScore();
+  buttonOperation();
+  updateGameView();
+};
+
+initializeGame();
+
+rules.addEventListener("click", () => {
+  openRules();
+});

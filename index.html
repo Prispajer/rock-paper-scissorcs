@@ -34,7 +34,7 @@
       </div>
     </header>
     <main>
-      <section class="phase-1">
+      <section class="game-container">
         <img class="triangle" src="images/bg-triangle.svg" alt="triangle" />
         <button class="button button--paper" data-choice-id="paper">
           <div class="image-container">
@@ -52,20 +52,8 @@
           </div>
         </button>
       </section>
-      <section class="phase-2 hidden">
-        <div class="picks-container">
-          <div class="choice-container">
-            <p>YOU PICKED</p>
-          </div>
-          <div class="choice-container">
-            <p>THE HOUSE PICKED</p>
-            <div class="empty-button">
-              <img src="images/icon-rock.svg" alt="" />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="phase-3 hidden">
+      <section class="player-pick-result hidden"></section>
+      <section class="compare-result hidden">
         <div class="picks-container">
           <div class="choice-container">
             <p>YOU PICKED</p>
@@ -75,7 +63,7 @@
           </div>
         </div>
       </section>
-      <section class="phase-4 hidden">
+      <section class="final-result hidden">
         <div class="picks-container">
           <div class="choice-container">
             <p>YOU PICKED</p>
