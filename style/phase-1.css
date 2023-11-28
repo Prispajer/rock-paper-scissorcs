@@ -1,0 +1,56 @@
+@import url(colors.css);
+
+.phase-1 {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phase-1 .triangle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.phase-1 .button {
+  aspect-ratio: 1/1;
+  position: absolute;
+  border-radius: 50%;
+  width: 30%;
+  cursor: pointer;
+  border: none;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0px 8px 0px rgb(0, 0, 0, 0.15);
+}
+
+.phase-1 .button--paper {
+  background-image: var(--paper-gradient);
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.phase-1 .button--scissors {
+  background-image: var(--scissors-gradient);
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+
+.phase-1 .button--rock {
+  background-image: var(--rock-gradient);
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.phase-1 img {
+  pointer-events: none;
+}

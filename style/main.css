@@ -26,7 +26,7 @@ header {
   align-items: center;
   width: 50%;
   height: 100px;
-  margin: 30px 0 0 0;
+  margin: 40px 0 0 0;
   padding: 10px 15px;
   border: 2px solid var(--header-line);
   border-radius: 10px;
@@ -49,7 +49,6 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   padding: 10px 0 0 0;
   border-radius: 5px;
   line-height: 1.1;
@@ -69,82 +68,10 @@ header {
 }
 
 main {
-  margin: 100px auto;
-  max-width: 600px;
-  width: 40%;
+  margin: 50px auto;
+  width: 50%;
   height: calc(100% - 100px);
-}
-
-.game-container {
-  position: relative;
-  background-position: center;
-  background-size: cover;
-  margin: 0 auto;
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.triangle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.game-container .button {
-  aspect-ratio: 1/1;
-  position: absolute;
-  border-radius: 50%;
-  width: 30%;
-  cursor: pointer;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: inset 0px 8px 0px rgb(0, 0, 0, 0.15);
-}
-
-.image-container {
-  width: 80%;
-  height: 80%;
-  box-shadow: inset 0px 8px 0px rgb(0, 0, 0, 0.15);
-  background: var(--white);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-container img {
-  width: 60%;
-}
-
-.button--paper {
-  background-image: var(--paper-gradient);
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-}
-
-.button--scissors {
-  background-image: var(--scissors-gradient);
-  right: 0;
-  top: 0;
-  transform: translate(50%, -50%);
-}
-
-.button--rock {
-  background-image: var(--rock-gradient);
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-}
-
-img {
-  pointer-events: none;
+  margin: 100px 0 0 0;
 }
 
 .rules {
@@ -159,4 +86,18 @@ img {
   color: var(--white);
   font-weight: 700;
   cursor: pointer;
+}
+
+.image-container {
+  width: 80%;
+  height: 80%;
+  box-shadow: inset 0px 8px 0px rgb(0, 0, 0, 0.15);
+  background: var(--white);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.image-container img {
+  width: 60%;
 }

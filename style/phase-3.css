@@ -1,0 +1,11 @@
+@import url(colors.css);
+
+.phase-3 {
+  width: 100%;
+}
+
+.phase-3 .picks-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
