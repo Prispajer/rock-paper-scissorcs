@@ -1,5 +1,6 @@
 @import url(colors.css);
 
+/* General Styling */
 * {
   margin: 0;
   padding: 0;
@@ -74,18 +75,25 @@ main {
   margin: 100px 0 0 0;
 }
 
-.rules {
-  position: absolute;
-  right: 3%;
-  bottom: 3%;
-  background: transparent;
-  border: 2px solid var(--header-line);
-  border-radius: 8px;
-  width: 100px;
-  height: 40px;
+.picks-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.choice-container {
+  text-align: center;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.choice-container p {
   color: var(--white);
-  font-weight: 700;
-  cursor: pointer;
+  padding: 0 0 20px 0;
+  font-size: 2rem;
 }
 
 .image-container {
@@ -126,26 +134,137 @@ main {
   border-radius: 50%;
 }
 
-.player-choice-container {
-  text-align: center;
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.computer-choice-container {
-  text-align: center;
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.player-choice p,
-.computer-choice p {
+.rules {
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  background: transparent;
+  border: 2px solid var(--header-line);
+  border-radius: 8px;
+  width: 100px;
+  height: 40px;
   color: var(--white);
-  padding: 0 0 20px 0;
+  font-weight: 700;
+  cursor: pointer;
 }
+
+.hidden {
+  display: none;
+}
+/*  */
+/* phase-1 styling */
+
+.phase-1 {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phase-1 .triangle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.phase-1 .button {
+  aspect-ratio: 1/1;
+  position: absolute;
+  border-radius: 50%;
+  width: 30%;
+  cursor: pointer;
+  border: none;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0px 8px 0px rgb(0, 0, 0, 0.15);
+}
+
+.phase-1 .button--paper {
+  background-image: var(--paper-gradient);
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.phase-1 .button--scissors {
+  background-image: var(--scissors-gradient);
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+
+.phase-1 .button--rock {
+  background-image: var(--rock-gradient);
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.phase-1 img {
+  pointer-events: none;
+}
+
+/*  */
+/* phase-2 styling */
+.phase-2 {
+  width: 100%;
+}
+
+.phase-2 .empty-button {
+  opacity: 0.1;
+  width: 70%;
+  aspect-ratio: 1/1;
+  background: black;
+  border-radius: 50%;
+  margin: 20px 0 0 0;
+}
+
+.phase-2 .empty-button img {
+  display: none;
+}
+/*  */
+/* phase-3, phase-4 styling */
+.phase-4 {
+  width: 100%;
+}
+
+.phase-4 .result {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.phase-4 .result p {
+  font-size: 3rem;
+  padding: 0 0 15px 0;
+  color: var(--white);
+}
+
+.phase-4 .play-again {
+  background: var(--white);
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.phase-4 .play-again p {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 2.8;
+  color: black;
+}
+
+.phase-4 .play-again:hover {
+  color: var(--rock-gradient);
+}
+/*  */
