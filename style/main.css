@@ -223,6 +223,11 @@ main {
   transform: translate(-200%, 0%);
 }
 
+.game-container.reset {
+  opacity: 0;
+  transform: translate(50%, 50%);
+}
+
 /*  */
 /* phase-2 styling */
 .player-pick-result {

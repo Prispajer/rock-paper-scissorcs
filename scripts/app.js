@@ -75,8 +75,13 @@ rulesButton.addEventListener("click", () => {
   openRules();
 });
 
-playAgain.forEach((button) => {
-  button.addEventListener("click", () => {
-    console.log("siema");
-  });
+main.addEventListener("click", (event) => {
+  const playAgainButton = event.target.closest(".play-again");
+
+  if (playAgainButton) {
+    finalResultContainer.classList.add("hidden");
+    gameContainer.classList.remove("slide-left");
+    gameContainer.classList.remove("hidden");
+  }
+  updateScore();
 });
