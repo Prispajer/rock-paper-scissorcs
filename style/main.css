@@ -171,6 +171,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
 .game-container .triangle {
@@ -215,6 +216,11 @@ main {
 
 .game-container img {
   pointer-events: none;
+}
+
+.game-container.slide-left {
+  opacity: 0;
+  transform: translate(-200%, 0%);
 }
 
 /*  */
@@ -274,6 +280,10 @@ main {
 
 .final-result .play-again:hover {
   color: var(--rock-gradient);
+}
+
+.hidden {
+  display: none;
 }
 
 /*  */

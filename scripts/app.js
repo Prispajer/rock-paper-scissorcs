@@ -6,6 +6,8 @@ const compareResultContainer = document.querySelector(".compare-result");
 const finalResultContainer = document.querySelector(".final-result");
 const rulesContainer = document.querySelector(".rules-container");
 const closeWindow = rulesContainer.querySelector(".close-window");
+const playAgain = document.querySelectorAll(".result .play-again");
+const main = document.querySelector("main");
 
 let stateOfTheGame = [
   {
@@ -23,18 +25,19 @@ const updateScore = () => {
 };
 
 const switchViews = () => {
+  gameContainer.classList.add("slide-left");
   setTimeout(() => {
-    toggleHidden(gameContainer);
+    gameContainer.classList.add("hidden");
+    playerPickResultContainer.classList.remove("hidden");
+    setTimeout(() => {
+      playerPickResultContainer.classList.add("hidden");
+      compareResultContainer.classList.remove("hidden");
+      setTimeout(() => {
+        compareResultContainer.classList.add("hidden");
+        finalResultContainer.classList.remove("hidden");
+      }, 1000);
+    }, 1000);
   }, 1000);
-  setTimeout(() => {
-    toggleHidden(playerPickResultContainer);
-  }, 2000);
-  setTimeout(() => {
-    toggleHidden(compareResultContainer);
-  }, 3000);
-  setTimeout(() => {
-    toggleHidden(finalResultContainer);
-  }, 4000);
 };
 
 const buttonOperation = () => {
@@ -70,4 +73,10 @@ closeWindow.addEventListener("click", () => {
 
 rulesButton.addEventListener("click", () => {
   openRules();
+});
+
+playAgain.forEach((button) => {
+  button.addEventListener("click", () => {
+    console.log("siema");
+  });
 });

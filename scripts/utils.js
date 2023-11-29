@@ -32,22 +32,28 @@ const toggleHidden = (element) => {
 };
 
 const addComputerScore = () => {
-  localStorage.setItem("computerWins", (stateOfTheGame[0].computerWins += 1));
+  const currentComputerWins = parseInt(stateOfTheGame[0].computerWins) || 0;
+  localStorage.setItem("computerWins", currentComputerWins + 1);
 };
 
 const addPlayerScore = () => {
-  localStorage.setItem("playerWins", (stateOfTheGame[0].playerWins += 1));
+  const currentPlayerWins = parseInt(stateOfTheGame[0].playerWins) || 0;
+  localStorage.setItem("playerWins", currentPlayerWins + 1);
 };
 
 const compareResult = () => {
   let resultText = document.querySelectorAll(".result .result-text");
   if (stateOfTheGame[0].playerPick === stateOfTheGame[0].computerPick) {
-    console.log("DRAW");
+    return (resultText.innerHTML = "DRAW");
   } else if (
     stateOfTheGame[0].playerPick.length > stateOfTheGame[0].computerPick.length
   ) {
-    console.log("WIN");
+    addPlayerScore();
+    updateScore();
+    return (resultText.innerHTML = "WIN");
   } else {
-    console.log("LOSE");
+    addComputerScore();
+    updateScore();
+    return (resultText.innerHTML = "LOSE");
   }
 };
