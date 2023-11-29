@@ -151,6 +151,14 @@ main {
 .hidden {
   display: none;
 }
+
+.rules-container.hidden {
+  display: none;
+}
+
+.game-container.hidden {
+  display: none;
+}
 /*  */
 /* phase-1 styling */
 
@@ -267,4 +275,5 @@ main {
 .final-result .play-again:hover {
   color: var(--rock-gradient);
 }
+
 /*  */
