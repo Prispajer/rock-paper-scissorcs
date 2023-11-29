@@ -12,12 +12,30 @@ let stateOfTheGame = [
   },
 ];
 
+const storePlayerPick = (playerPick) => {
+  stateOfTheGame = [
+    {
+      ...stateOfTheGame[0],
+      playerPick: playerPick,
+    },
+  ];
+};
+
+const storeComputerPick = (computerPick) => {
+  stateOfTheGame = [
+    {
+      ...stateOfTheGame[0],
+      computerPick: computerPick,
+    },
+  ];
+};
+
 const addPlayerScore = () => {
-  stateOfTheGame[0].computerWins += 1;
+  localStorage.setItem("playerWins", (stateOfTheGame[0].playerWins += 1));
 };
 
 const addComputerScore = () => {
-  stateOfTheGame = [...(stateOfTheGame, computerWins + 1)];
+  stateOfTheGame[0].computerWins += 1;
 };
 
 const updateScore = () => {
@@ -43,24 +61,29 @@ const updateGameView = () => {
   const playerPickResultContainer = document.querySelector(
     ".player-pick-result"
   );
+
+  let playerPick = stateOfTheGame[0].playerPick;
+  let computerPick = stateOfTheGame[0].computerPick;
+
   const playerPickResultTemplate = `
     <div class="picks-container">
       <div class="choice-container">
         <p>YOU PICKED</p>
-        <div class="rock-complete">
+        <div class="${playerPick}-complete">
           <div class="image-container">
-            <img src="images/icon-rock.svg" alt="rock" />
+            <img src="images/icon-${playerPick}.svg" alt="${playerPick}" />
           </div>
         </div>
       </div>
       <div class="choice-container">
         <p>THE HOUSE PICKED</p>
         <div class="empty-button">
-          <img src="images/icon-rock.svg" alt="" />
+          <img src="images/icon-${computerPick}.svg" alt="${computerPick}" />
         </div>
       </div>
     </div>
   `;
+
   playerPickResultContainer.innerHTML = playerPickResultTemplate;
 };
 
@@ -69,8 +92,10 @@ const buttonOperation = () => {
     button.addEventListener("click", (event) => {
       const computerChoice = getComputerId();
       const playerChoice = getPlayerId(event);
-      compareResult(computerChoice, playerChoice);
+      storeComputerPick(computerChoice);
+      storePlayerPick(playerChoice);
       switchViews();
+      updateGameView();
     });
   });
 };

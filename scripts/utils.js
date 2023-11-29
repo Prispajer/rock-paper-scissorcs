@@ -9,12 +9,12 @@ function getPlayerId(event) {
   return choiceId;
 }
 
-function compareResult(computerResult, playerResult) {
-  if (computerResult != playerResult) {
-    console.log("WIN");
-  } else if (computerResult === playerResult) {
-    console.log("DRAW");
-  } else {
-    console.log("LOSE");
-  }
-}
+// function compareResult(computerResult, playerResult) {
+//   if (computerResult != playerResult) {
+//     console.log("WIN");
+//   } else if (computerResult === playerResult) {
+//     console.log("DRAW");
+//   } else {
+//     console.log("LOSE");
+//   }
+// }
