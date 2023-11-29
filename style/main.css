@@ -249,7 +249,7 @@ main {
   flex-direction: column;
 }
 
-.final-result .result p {
+.result-text {
   font-size: 3rem;
   padding: 0 0 15px 0;
   color: var(--white);

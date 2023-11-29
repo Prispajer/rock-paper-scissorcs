@@ -27,28 +27,27 @@ const getPlayerId = (event) => {
   return choiceId;
 };
 
-// const addPlayerScore = () => {
-//   localStorage.setItem("playerWins", (stateOfTheGame[0].playerWins += 1));
-// };
+const toggleHidden = (element) => {
+  element.classList.toggle("hidden");
+};
 
-// const addComputerScore = () => {
-//   stateOfTheGame[0].computerWins += 1;
-// };
+const addComputerScore = () => {
+  localStorage.setItem("computerWins", (stateOfTheGame[0].computerWins += 1));
+};
 
-// const compareResult = (computerResult, playerResult) => {
-//   if (computerResult != playerResult) {
-//     console.log("WIN");
-//   } else if (computerResult === playerResult) {
-//     console.log("DRAW");
-//   } else {
-//     console.log("LOSE");
-//   }
-// }
+const addPlayerScore = () => {
+  localStorage.setItem("playerWins", (stateOfTheGame[0].playerWins += 1));
+};
 
-// const addPlayerScore = () => {
-//   localStorage.setItem("playerWins", (stateOfTheGame[0].playerWins += 1));
-// };
-
-// const addComputerScore = () => {
-//   stateOfTheGame[0].computerWins += 1;
-// };
+const compareResult = () => {
+  let resultText = document.querySelectorAll(".result .result-text");
+  if (stateOfTheGame[0].playerPick === stateOfTheGame[0].computerPick) {
+    console.log("DRAW");
+  } else if (
+    stateOfTheGame[0].playerPick.length > stateOfTheGame[0].computerPick.length
+  ) {
+    console.log("WIN");
+  } else {
+    console.log("LOSE");
+  }
+};

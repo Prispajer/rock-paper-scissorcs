@@ -1,9 +1,10 @@
 const button = document.querySelectorAll(".button");
-const rules = document.querySelector(".rules");
-const rulesContainer = document.querySelector(".rules-container");
+const rulesButton = document.querySelector(".rules");
+const gameContainer = document.querySelector(".game-container");
 const playerPickResultContainer = document.querySelector(".player-pick-result");
 const compareResultContainer = document.querySelector(".compare-result");
 const finalResultContainer = document.querySelector(".final-result");
+const rulesContainer = document.querySelector(".rules-container");
 const closeWindow = rulesContainer.querySelector(".close-window");
 
 let stateOfTheGame = [
@@ -22,12 +23,18 @@ const updateScore = () => {
 };
 
 const switchViews = () => {
-  document.querySelector(".game-container").classList.add("hidden");
-  document.querySelector(".player-pick-result").classList.remove("hidden");
-  document.querySelector(".player-pick-result").classList.add("hidden");
-  document.querySelector(".compare-result").classList.remove("hidden");
-  document.querySelector(".compare-result").classList.add("hidden");
-  document.querySelector(".final-result").classList.remove("hidden");
+  setTimeout(() => {
+    toggleHidden(gameContainer);
+  }, 1000);
+  setTimeout(() => {
+    toggleHidden(playerPickResultContainer);
+  }, 2000);
+  setTimeout(() => {
+    toggleHidden(compareResultContainer);
+  }, 3000);
+  setTimeout(() => {
+    toggleHidden(finalResultContainer);
+  }, 4000);
 };
 
 const buttonOperation = () => {
@@ -40,7 +47,8 @@ const buttonOperation = () => {
       switchViews();
       let playerPick = stateOfTheGame[0].playerPick;
       let computerPick = stateOfTheGame[0].computerPick;
-      updateGameView(playerPick, computerPick);
+      let result = compareResult();
+      updateGameView(playerPick, computerPick, result);
     });
   });
 };
@@ -60,6 +68,6 @@ closeWindow.addEventListener("click", () => {
   rulesContainer.classList.add("hidden");
 });
 
-rules.addEventListener("click", () => {
+rulesButton.addEventListener("click", () => {
   openRules();
 });

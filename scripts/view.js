@@ -50,7 +50,7 @@ const updateGameView = (playerPick, computerPick, result) => {
       </div>
     </div>
     <div class="result">
-      <p>${result}</p>
+      <p class="result-text">${result}</p>
       <button class="play-again"><p>PLAY AGAIN</p></button>
     </div>
     <div class="choice-container">
