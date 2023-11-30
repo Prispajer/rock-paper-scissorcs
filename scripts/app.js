@@ -11,8 +11,8 @@ const main = document.querySelector("main");
 
 let stateOfTheGame = [
   {
-    computerWins: localStorage.getItem("computerWins") || 0,
-    playerWins: localStorage.getItem("playerWins") || 0,
+    computerWins: parseInt(localStorage.getItem("computerWins")) || 0,
+    playerWins: parseInt(localStorage.getItem("playerWins")) || 0,
     computerPick: null,
     playerPick: null,
   },
@@ -35,6 +35,9 @@ const switchViews = () => {
       setTimeout(() => {
         compareResultContainer.classList.add("hidden");
         finalResultContainer.classList.remove("hidden");
+
+        // Aktualizacja wyniku po zakończeniu gry
+        updateScore();
       }, 1000);
     }, 1000);
   }, 1000);
@@ -55,13 +58,6 @@ const buttonOperation = () => {
     });
   });
 };
-
-const initializeGame = () => {
-  updateScore();
-  buttonOperation();
-};
-
-initializeGame();
 
 const openRules = () => {
   rulesContainer.classList.toggle("hidden");
@@ -85,3 +81,10 @@ main.addEventListener("click", (event) => {
   }
   updateScore();
 });
+
+const initializeGame = () => {
+  buttonOperation();
+  updateScore();
+};
+
+initializeGame();

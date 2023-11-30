@@ -34,11 +34,21 @@ const toggleHidden = (element) => {
 const addComputerScore = () => {
   const currentComputerWins = parseInt(stateOfTheGame[0].computerWins) || 0;
   localStorage.setItem("computerWins", currentComputerWins + 1);
+  console.log(
+    "Zwycięstwa komputera po aktualizacji:",
+    localStorage.getItem("computerWins")
+  );
+  updateScore();
 };
 
 const addPlayerScore = () => {
   const currentPlayerWins = parseInt(stateOfTheGame[0].playerWins) || 0;
   localStorage.setItem("playerWins", currentPlayerWins + 1);
+  console.log(
+    "Zwycięstwa gracza po aktualizacji:",
+    localStorage.getItem("playerWins")
+  );
+  updateScore();
 };
 
 const compareResult = () => {
