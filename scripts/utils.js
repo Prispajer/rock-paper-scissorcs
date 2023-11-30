@@ -27,37 +27,33 @@ const getPlayerId = (event) => {
   return choiceId;
 };
 
-const toggleHidden = (element) => {
-  element.classList.toggle("hidden");
-};
-
 const addComputerScore = () => {
   const currentComputerWins = parseInt(stateOfTheGame[0].computerWins) || 0;
   localStorage.setItem("computerWins", currentComputerWins + 1);
-  console.log(
-    "Zwycięstwa komputera po aktualizacji:",
-    localStorage.getItem("computerWins")
-  );
-  updateScore();
 };
 
 const addPlayerScore = () => {
   const currentPlayerWins = parseInt(stateOfTheGame[0].playerWins) || 0;
   localStorage.setItem("playerWins", currentPlayerWins + 1);
-  console.log(
-    "Zwycięstwa gracza po aktualizacji:",
-    localStorage.getItem("playerWins")
-  );
-  updateScore();
 };
+
+let scenario = [
+  { beats: "rock", loses: "scissors" },
+  { beats: "scissors", loses: "paper" },
+  { beats: "paper", loses: "rock" },
+];
 
 const compareResult = () => {
   let resultText = document.querySelectorAll(".result .result-text");
-  if (stateOfTheGame[0].playerPick === stateOfTheGame[0].computerPick) {
+  let playerPick = stateOfTheGame[0].playerPick;
+  let computerPick = stateOfTheGame[0].computerPick;
+  let isPlayerWinner = scenario.some(
+    (rule) => rule.beats === playerPick && rule.loses === computerPick
+  );
+
+  if (playerPick === computerPick) {
     return (resultText.innerHTML = "DRAW");
-  } else if (
-    stateOfTheGame[0].playerPick.length > stateOfTheGame[0].computerPick.length
-  ) {
+  } else if (isPlayerWinner) {
     addPlayerScore();
     updateScore();
     return (resultText.innerHTML = "WIN");

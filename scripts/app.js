@@ -35,9 +35,6 @@ const switchViews = () => {
       setTimeout(() => {
         compareResultContainer.classList.add("hidden");
         finalResultContainer.classList.remove("hidden");
-
-        // Aktualizacja wyniku po zakończeniu gry
-        updateScore();
       }, 1000);
     }, 1000);
   }, 1000);
@@ -50,11 +47,12 @@ const buttonOperation = () => {
       const playerChoice = getPlayerId(event);
       storeComputerPick(computerChoice);
       storePlayerPick(playerChoice);
-      switchViews();
       let playerPick = stateOfTheGame[0].playerPick;
       let computerPick = stateOfTheGame[0].computerPick;
       let result = compareResult();
       updateGameView(playerPick, computerPick, result);
+      updateScore();
+      switchViews();
     });
   });
 };
