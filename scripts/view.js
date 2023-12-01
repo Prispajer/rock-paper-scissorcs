@@ -1,4 +1,4 @@
-const updateGameView = (playerPick, computerPick, result) => {
+const gameViewTemplate = (playerPick, computerPick, result) => {
   const playerPickResultTemplate = `
   <div class="picks-container">
     <div class="choice-container">
@@ -66,4 +66,27 @@ const updateGameView = (playerPick, computerPick, result) => {
   compareResultContainer.innerHTML = compareResultTemplate;
   playerPickResultContainer.innerHTML = playerPickResultTemplate;
   finalResultContainer.innerHTML = finalResultTemplate;
+};
+
+const switchViews = () => {
+  gameContainer.classList.add("slide-left");
+  setTimeout(() => {
+    gameContainer.classList.add("hidden");
+    playerPickResultContainer.classList.remove("hidden");
+    setTimeout(() => {
+      playerPickResultContainer.classList.add("hidden");
+      compareResultContainer.classList.remove("hidden");
+      setTimeout(() => {
+        compareResultContainer.classList.add("hidden");
+        finalResultContainer.classList.remove("hidden");
+      }, 1000);
+    }, 1000);
+  }, 1000);
+};
+
+const updateGameView = () => {
+  let playerPick = stateOfTheGame[0].playerPick;
+  let computerPick = stateOfTheGame[0].computerPick;
+  let result = compareResult();
+  gameViewTemplate(playerPick, computerPick, result);
 };

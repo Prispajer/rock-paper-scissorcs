@@ -28,22 +28,34 @@ const getPlayerId = (event) => {
 };
 
 const addComputerScore = () => {
-  const currentComputerWins = parseInt(stateOfTheGame[0].computerWins) || 0;
+  let currentComputerWins = parseInt(stateOfTheGame[0].computerWins) || 0;
   localStorage.setItem("computerWins", currentComputerWins + 1);
+  stateOfTheGame = [
+    {
+      ...stateOfTheGame[0],
+      computerWins: currentComputerWins + 1,
+    },
+  ];
 };
 
 const addPlayerScore = () => {
-  const currentPlayerWins = parseInt(stateOfTheGame[0].playerWins) || 0;
+  let currentPlayerWins = parseInt(stateOfTheGame[0].playerWins) || 0;
   localStorage.setItem("playerWins", currentPlayerWins + 1);
+  stateOfTheGame = [
+    {
+      ...stateOfTheGame[0],
+      playerWins: currentPlayerWins + 1,
+    },
+  ];
 };
 
-let scenario = [
-  { beats: "rock", loses: "scissors" },
-  { beats: "scissors", loses: "paper" },
-  { beats: "paper", loses: "rock" },
-];
-
 const compareResult = () => {
+  let scenario = [
+    { beats: "rock", loses: "scissors" },
+    { beats: "scissors", loses: "paper" },
+    { beats: "paper", loses: "rock" },
+  ];
+
   let resultText = document.querySelectorAll(".result .result-text");
   let playerPick = stateOfTheGame[0].playerPick;
   let computerPick = stateOfTheGame[0].computerPick;

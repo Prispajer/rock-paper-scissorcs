@@ -5,7 +5,6 @@ const playerPickResultContainer = document.querySelector(".player-pick-result");
 const compareResultContainer = document.querySelector(".compare-result");
 const finalResultContainer = document.querySelector(".final-result");
 const rulesContainer = document.querySelector(".rules-container");
-const closeWindow = rulesContainer.querySelector(".close-window");
 const playAgain = document.querySelectorAll(".result .play-again");
 const main = document.querySelector("main");
 
@@ -24,50 +23,22 @@ const updateScore = () => {
     stateOfTheGame[0].playerWins - stateOfTheGame[0].computerWins;
 };
 
-const switchViews = () => {
-  gameContainer.classList.add("slide-left");
-  setTimeout(() => {
-    gameContainer.classList.add("hidden");
-    playerPickResultContainer.classList.remove("hidden");
-    setTimeout(() => {
-      playerPickResultContainer.classList.add("hidden");
-      compareResultContainer.classList.remove("hidden");
-      setTimeout(() => {
-        compareResultContainer.classList.add("hidden");
-        finalResultContainer.classList.remove("hidden");
-      }, 1000);
-    }, 1000);
-  }, 1000);
+const clickedOption = () => {
+  const computerChoice = getComputerId();
+  const playerChoice = getPlayerId(event);
+  storeComputerPick(computerChoice);
+  storePlayerPick(playerChoice);
 };
 
 const buttonOperation = () => {
   button.forEach((button) => {
     button.addEventListener("click", (event) => {
-      const computerChoice = getComputerId();
-      const playerChoice = getPlayerId(event);
-      storeComputerPick(computerChoice);
-      storePlayerPick(playerChoice);
-      let playerPick = stateOfTheGame[0].playerPick;
-      let computerPick = stateOfTheGame[0].computerPick;
-      let result = compareResult();
-      updateGameView(playerPick, computerPick, result);
-      updateScore();
+      clickedOption();
+      updateGameView();
       switchViews();
     });
   });
 };
-
-const openRules = () => {
-  rulesContainer.classList.toggle("hidden");
-};
-
-closeWindow.addEventListener("click", () => {
-  rulesContainer.classList.add("hidden");
-});
-
-rulesButton.addEventListener("click", () => {
-  openRules();
-});
 
 main.addEventListener("click", (event) => {
   const playAgainButton = event.target.closest(".play-again");
@@ -77,7 +48,18 @@ main.addEventListener("click", (event) => {
     gameContainer.classList.remove("slide-left");
     gameContainer.classList.remove("hidden");
   }
-  updateScore();
+});
+
+const openRules = () => {
+  const closeWindow = rulesContainer.querySelector(".close-window");
+  rulesContainer.classList.toggle("hidden");
+  closeWindow.addEventListener("click", () => {
+    rulesContainer.classList.add("hidden");
+  });
+};
+
+rulesButton.addEventListener("click", () => {
+  openRules();
 });
 
 const initializeGame = () => {
