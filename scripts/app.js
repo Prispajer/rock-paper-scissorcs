@@ -30,7 +30,7 @@ const clickedOption = () => {
   storePlayerPick(playerChoice);
 };
 
-const buttonOperation = () => {
+const clickOption = () => {
   button.forEach((button) => {
     button.addEventListener("click", (event) => {
       clickedOption();
@@ -63,7 +63,7 @@ rulesButton.addEventListener("click", () => {
 });
 
 const initializeGame = () => {
-  buttonOperation();
+  clickOption();
   updateScore();
 };
 
